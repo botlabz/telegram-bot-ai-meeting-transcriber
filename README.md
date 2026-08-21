@@ -1,6 +1,6 @@
-# AI Meeting Transcriber 🤖
+# Telegram Bot: AI Meeting Transcriber — Free & Open Source 🤖
 
-Send a transcript or notes and receive a summary, action items, decisions and tasks automatically.
+**AI Meeting Transcriber** is a free, open-source Telegram bot that turns transcripts and notes into summaries, action items and decisions using AI. Self-host it for free on Cloudflare Workers — full source code included (MIT).
 
 > 🪪 **License:** MIT — free for personal and commercial use.
 
@@ -131,6 +131,21 @@ telegram-bot-ai-meeting-transcriber/
 ## 🆓 Free & open source
 
 This project is released under the **MIT License** — free for personal and commercial use.
+
+---
+
+## 🤖 More free Telegram bots
+
+Part of a free, open-source Telegram bot collection by [botlabz](https://github.com/botlabz):
+
+- [AI Code Fixer](https://github.com/botlabz/telegram-bot-ai-code-fixer)
+- [AI Content Generator](https://github.com/botlabz/telegram-bot-ai-content-generator)
+- [AI Document Chat](https://github.com/botlabz/telegram-bot-ai-document-chat)
+- [AI File Analyzer](https://github.com/botlabz/telegram-bot-ai-file-analyzer)
+- [AI GitHub Tracker](https://github.com/botlabz/telegram-bot-ai-github-tracker)
+- [AI News Digest](https://github.com/botlabz/telegram-bot-ai-news-digest)
+
+Browse all bots in the [tele-bot](https://github.com/botlabz/tele-bot) org.
 
 ---
 
