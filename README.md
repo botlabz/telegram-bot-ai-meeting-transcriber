@@ -29,13 +29,45 @@
 
 ## 📋 Prerequisites
 
-- A **Cloudflare account** (free tier is fine).
-- **Node.js** (v18+) and **npm** installed.
+- A **Cloudflare account** (free tier is fine — no credit card needed).
 - A **Telegram account** (to talk to [@BotFather](https://t.me/BotFather)).
+- *(Only for Method 2 / the CLI method)* **Node.js** (v18+) and **npm** installed.
 
 ---
 
 ## 🚀 Step-by-step setup & deployment
+
+You can deploy this bot in **two ways**. Both end up with the same working bot on Cloudflare's free plan — pick whichever you prefer:
+
+- **Method 1 — Manual (Cloudflare Dashboard):** no code tools, done entirely in the browser.
+- **Method 2 — Cloudflare CLI (Wrangler):** the local method using your terminal.
+
+### Method 1 — Manual (Cloudflare Dashboard, no code tools needed)
+
+> If you don't have a Cloudflare account yet, create one free at <https://dash.cloudflare.com/sign-up> (no credit card needed).
+
+1. **Create your Telegram bot**
+   1. Open [@BotFather](https://t.me/BotFather) in Telegram and send `/newbot`.
+   2. Pick a **name** and a **username** that ends in `bot`.
+   3. Copy the **HTTP API token** it returns and keep it secret.
+
+2. **Create the Worker**
+   1. In the Cloudflare dashboard go to **Workers & Pages → Create → Create Worker**.
+   2. Name it `telegram-bot-ai-meeting-transcriber` and click **Deploy** (you'll land in the code editor).
+   3. Delete the sample code, paste the **full contents of `worker.js`** from this repo, then click **Deploy** again. (Cloudflare bundles the `hono` dependency automatically; if the editor flags a missing module, add the `hono` package from **Packages** and redeploy.)
+
+3. **Add the required bindings** — open the Worker, go to **Settings → Bindings**, and add:
+   - **AI binding** — click **Add binding → AI**, set the variable name to `AI`, and Save.
+   - **Bot token** — under **Variables**, add `BOT_TOKEN` as an **Encrypt** (secret) variable, paste your token, then **Save**.
+   - Click **Deploy** / **Redeploy** so the new bindings take effect.
+
+4. **Point Telegram at your bot** — open this URL in your browser (use your Worker's real URL, shown in the dashboard; `<subdomain>` is your account's `*.workers.dev` subdomain):
+   ```
+   https://telegram-bot-ai-meeting-transcriber.<subdomain>.workers.dev/register
+   ```
+   You should see `{"ok":true,...}`. ✅ Done — send the bot a message.
+
+### Method 2 — Cloudflare CLI (Wrangler)
 
 ### 1. Create a Cloudflare account
 
